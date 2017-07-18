@@ -1,0 +1,218 @@
+./ in ./index.html tells the browser to look for the file in the current folder.
+
+
+HTML Boilerplate
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  <link href=''./resources/css/styles.css' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+
+  </body>
+</html>
+
+
+CCS selectors
+
+img {
+  height: 150px;
+}
+
+.description {
+  font-size: 20px;
+}
+
+#cook-time {
+  font-weight: bold;
+}
+
+P with .time classname
+p.time {
+  color: gray;
+}
+
+
+li elements withing the .ingredients class
+.ingredients li {
+  list-style: square;
+}
+
+a elements within .citation class with classname .external-link
+.citation a.external-link {
+  color: SeaGreen;
+}
+
+multiple selectors:
+h1, h2, p, li {
+  font-family: Helvetica;
+}
+
+Video:
+<video src="https://s3.amazonaws.com/codecademy-content/courses/freelance-1/unit-1/lesson-2/htmlcss1-vid_brown-bear.mp4" height="240" width="320" controls>Video not supported</video>
+
+border: 3px solid coral;
+
+Flexbox:
+
+div.container {
+  display: flex;
+  display: inline-flex;
+  justify-content: flex-end;
+  align-items: baseline; (only one line)
+  align-items: space-around;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+div.child {
+  flex-grow: 1;
+  flex-shrink: 2;
+  flex-basis: 150px;
+}
+
+OR 
+
+div.child {
+  flex: 2 1 150px;
+}
+
+
+
+To designate an element as a flex container, set the element's display property to flex or inline-flex. Once an item is a flex container, there are several properties we can use to specify how its children behave. In this lesson we will cover these properties:
+
+justify-items
+align-items
+flex-grow
+flex-shrink
+flex-basis
+flex
+flex-wrap
+align-content
+flex-direction
+flex-flow
+
+Default behaviour:
+In previous exercises, when we changed the display value of parent containers to flex or inline-flex, all of the child elements (flex items) moved toward the upper left corner of the parent container. This is the default behavior of flex containers and their children. We can specify how flex items spread out from left to right, along the main axis. 
+
+Positioning with Flex-box:
+To position the items from left to right, we use a property called justify-content.
+
+There are five values for the justify-content property:
+
+flex-start — all items will be positioned in order starting, from the left of the parent container, with no extra space between or before them.
+flex-end — all items will be positioned in order, with the last item starting on the right side of the parent container, with no extra space between or after them.
+center — all items will be positioned in order, in the center of the parent container with no extra space before, between, or after them.
+space-around — items will be positioned with equal space before and after each item, resulting in double the space between elements.
+space-between — items will be positioned with equal space between them, but no extra space before the first or after the last elements.
+
+#flexstart {
+  justify-content: flex-start;
+  display: inline-flex;
+}
+
+#flexend {
+  justify-content: flex-end;
+  display: inline-flex;
+
+}
+
+#center {
+  justify-content: center;
+  display: inline-flex;
+}
+
+#spacearound {
+  justify-content: space-around;
+  display: inline-flex;
+}
+
+#spacebetween {
+  justify-content: space-between;
+  display: inline-flex;
+}
+
+
+There are five values we can use for the align-items property:
+
+flex-start — all elements will be positioned at the top of the parent container.
+flex-end — all elements will be positioned at the bottom of the parent container.
+center — the center of all elements will be positioned halfway between the top and bottom of the parent container.
+baseline — the bottom of the content of all items will be aligned with each other.
+stretch — if possible, the items will stretch from top to bottom of the container (this is the default value; elements with a specified height will not stretch; elements with a minimum height or no height specified will stretch).
+
+
+
+The flex-grow property allows us to specify if items should grow to fill a container and also which items should grow proportionally more or less than others.
+
+flex-basis allows us to specify the width of an item before it stretches or shrinks.
+
+
+The flex-wrap property can accept three values:
+
+wrap — child elements of a flex container will move down to the next line starting from the final item and working towards the first.
+nowrap — prevents items from wrapping; this is the default value and is only necessary to override a wrap value set by a different CSS rule.
+wrap-reverse — the wrapped element is displayed on top of the other elements in the flex container starting from the last and working toward the first (a mirror image of the wrap value).
+
+align-items is for aligning elements within a single row. If a flex container has multiple rows of content, we can use align-content to space the rows from top to bottom.
+
+align-content accepts six values:
+
+flex-start — all rows of elements will be positioned at the top of the parent container with no extra space between.
+flex-end — all rows of elements will be positioned at the bottom of the parent container with no extra space between.
+center — all rows of elements will be positioned at the center of the parent element with no extra space between.
+space-between — all rows of elements will be spaced evenly from the top to the bottom of the container with no space above the first or below the last.
+space-around — all rows of elements will be spaced evenly from the top to the bottom of the container with the same amount of space at the top and bottom and between each element.
+stretch — if a minimum height or no height is specified, the rows of elements will stretch to fill the parent container from top to bottom (default value).
+
+
+
+The major axis is used to position flex items with the following properties:
+
+justify-content
+flex-wrap
+flex-grow
+flex-shrink
+The cross axis is used to position flex items with the following properties:
+
+align-items
+align-content
+The major axis and cross axis are interchangeable. We can switch them using the flex-direction property. If we add the flex-direction property and give it a value of column, the flex items will be ordered vertically, not horizontally.
+
+
+
+The flex-direction property can accept four values:
+
+row — elements will be positioned from left to right across the parent element starting from the top left corner (default).
+row-reverse — elements will be positioned from right to left across the parent element starting from the top right corner.
+column — elements will be positioned from top to bottom of the parent element starting from the top left corner.
+column-reverse — elements will be positioned from the bottom to the top of the parent element starting from the bottom left corner.
+
+
+flex-flow property is used to declare both the flex-wrap and flex-direction properties in one line.
+.container {
+  display: flex;
+  flex-flow: wrap column;
+}
+
+display: flex changes an element to a block-level container with flex items inside of it.
+display: inline-flex allows multiple flex containers to appear inline with each other.
+justify-items is used to space items along the major axis.
+align-items is used to space items along the cross axis.
+flex-grow is used to specify how much space (and in what proportions) flex items absorb along the major axis.
+flex-shrink is used to specify how much flex items shrink and in what proportions along the major axis.
+flex-basis is used to specify the initial size of an element styled with flex-grow and/or flex-shrink.
+flex is used to specify flex-grow, flex-shrink, and flex-basis in one declaration.
+flex-wrap specifies that elements should shift along the cross axis if the flex container is not large enough.
+align-content is used to space rows along the cross axis.
+flex-direction is used to specify the major and cross axes.
+flex-flow is used to specify flex-wrap and flex-direction in one declaration.
+Flex containers can be nested inside of each other by declaring display: flex or display: inline-flex for children of flex containers.
+
+
+
+
+
+
+

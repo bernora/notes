@@ -1,0 +1,35 @@
+Command line notes
+
+ls > list folders under directory
+pwd > print working directory
+cd > change directory
+cd folderName > Goes to folder under current directory
+cd .. > Go a folder higher
+cd ../bla
+mkdir > Make directory 
+cd ../../ > Goes 2 folders higher
+touch > creates file
+ls -R - all files withing folders within directory
+setsid gedit Notes.txt > Opens file and resets terminal 
+rm filename > Removes file (no comfirmation asked)
+rm really*name > Deleted anything that starts with really and ends with name
+rmdir: 'dir' > removes directory
+mv old_folder_name new_folder_name > Renameing a folder
+mv old_file_name new_file_name > Rename a file
+mv file_name destination_directory > Move file to folder
+killall firefox > kills all processes that have firefox in their names 
+ls | grep "word" > lists all files with "word" in that directory
+The > character redirects a command’s output to a file instead of another command. 
+eg: ls > Notes.txt will output the directory list into Notes.txt
+history > prints a list of these commands ->  you can pipe it to grep to search 
+history | grep "ABC" > Lists the recent commands with ABC in them  
+
+
+
+
+ls -a - lists all contents, including hidden files and directories
+ls -l - lists all contents of a directory in long format
+ls -t - order files and directories by the time they were last modified.
+ls -R - all files withing folders within directory
+
+
