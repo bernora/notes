@@ -6,7 +6,8 @@ HTML Boilerplate
 <html>
   <head>
     <title></title>
-  <link href=''./resources/css/styles.css' rel='stylesheet' type='text/css'>
+  <link href='./resources/css/reset.css' rel='stylesheet' type='text/css'>
+  <link href='./resources/css/styles.css' rel='stylesheet' type='text/css'>
   </head>
   <body>
 
@@ -167,7 +168,6 @@ space-around — all rows of elements will be spaced evenly from the top to the 
 stretch — if a minimum height or no height is specified, the rows of elements will stretch to fill the parent container from top to bottom (default value).
 
 
-
 The major axis is used to position flex items with the following properties:
 
 justify-content
@@ -211,8 +211,267 @@ flex-flow is used to specify flex-wrap and flex-direction in one declaration.
 Flex containers can be nested inside of each other by declaring display: flex or display: inline-flex for children of flex containers.
 
 
+Aligning items to the right: 
+margin-right: auto; (on flex-item)
+justify-content: flex-end; (on flex container but then all flexitems will align)
+
+Aligning items to the left: 
+margin-left: auto;
+justify-content: flex-start;
+
+
+Responsive Design
+
+The unit of rem sizes font relative to the font size of a root element. That root element is the <html> element.
+
+
+When percentages are used to set padding and margin, however, they are calculated based only on the width of the parent element.
+
+For example, when a property like margin-left is set using a percentage (say 50%), the element will be moved halfway to the right in the parent container (as opposed to the child element receiving a margin half of its parent's margin).
+
+Vertical padding and margin are also calculated based on the width of the parent. 
+
+Note: When using relative sizing, ems and rems should be used to size text and dimensions on the page related to text size (i.e. padding around text). This creates a consistent layout based on text size. Otherwise, percentages should be used.
+
+Scaling images and videos proportionnaly
+
+.container {
+  width: 50%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+scaling background images
+body {
+  background-image: url('#');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+
+Media Queries
+
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+multiple rules:
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    /* ruleset for 320px - 480px */
+}
+
+@media only screen and (min-width: 320px) { 
+    /* ruleset for 320px - 479px */
+}
+
+
+@media only screen and (min-width: 480px) { 
+    /* ruleset for > 480px */
+}
+
+Trageting screen resolution
+@media only screen and (min-resolution: 300dpi) {
+    /* CSS for high resolution screens */
+}
+
+Combnation of multiple rules 
+@media only screen and (max-width: 480px) and (min-resolution: 300dpi) {
+    /* CSS ruleset */
+}
+
+Media queries when you need either OR listing:
+For example, if we needed to apply a style when only one of the below is true:
+
+The screen is less than 480 pixels wide
+The screen is in landscape mode
+We could write:
+
+@media only screen and (min-width: 480px), (orientation: landscape) {
+    /* CSS ruleset */
+}
+
+Page orientation rules:
+Note that the second media feature is orientation. The orientation media feature detects if the page has more width than height. If a page is wider, it's considered landscape, and if a page is taller, it's considered portrait.
+
+Creating breakpoints:
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+    /* CSS ruleset */
+}
 
 
 
+COLORS
 
+color: hsla(34, 100%, 50%, 0.1);
+The first number represents the degree of the hue, and can be between 0 and 360. The second and third numbers are percentages representing saturation and lightness respectively. The fourth value (which we have not seen before) is the alpha. This last value is sometimes called the opacity.
+Alpha is a decimal number from zero to one. 
+Hue is the first number. It refers to an angle on a color wheel. Red is 0 degrees, Green is 120 degrees, Blue is 240 degrees, and then back to Red at 360. You can see an example of this color wheel here. If alpha is zero, the color will be completely transparent. If alpha is one, the color will be opaque. The value for half transparent would be 0.5.
+
+You can also find inspiration in other media such as film, paintings, and print design. To start, try one of the many websites where people show off their designs, such as Dribbble, siteInspire, or Awwwards.
+
+Font-weight
+
+Font-weight has a scale ranging from 100 to 900. Valid values are multiples of 100 within this range such as 200 or 500.
+
+400 is the default font-weight of most text.
+700 signifies a bold font-weight.
+300 signifies a light font-weight.
+
+Line height
+A unitless number, such as 1.2. This number is an absolute value that will compute the line height as a ratio of the font size.
+
+Font-family
+To use fallback fonts, the following syntax is required:
+
+h1 {
+  font-family: "Garamond", "Times", serif;
+}
+
+Linking fonts
+
+Multiple fonts: <head>
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif|Playfair+Display" type="text/css" rel="stylesheet">
+</head>
+
+
+Pseudo-class selector
+
+#banner h1:hover {
+  color: #30627E;
+}
+Generally speaking, pseudo-class selectors:
+
+Begin with a colon and are placed at the end of a selector with no spaces before them
+Are often preceded by a traditional selector, such as #banner, .links, header, or ul li.
+
+There are a number of other pseudo-classes we can use to target elements based on user interaction.
+These are often referred to as dynamic pseudo-classes, and the most common ones are:
+
+:link to style an unvisited link.
+:visited to style a visited link.
+:hover to style an element when a user hovers over the element with the cursor.
+:active to style an element when a user activates an element. This is the time between when a user clicks an element and when they release the mouse.
+
+
+Sructural pseudo classes
+
+ul li:first-child {
+  color: gray;
+}
+the selector will target list items if they are the first-child of their parent. If there are no list items that are the first-child of their parent, no list items will be styled.
+
+<ul>
+ <li>item 1</li>
+ <li>item 2</li>
+</ul>
+The first list item would be styled. Further, if we used the same unordered list multiple times in our project, each occurence of the unordered list would be styled the same way.
+
+However, if we had this code in index.html:
+
+<ul>
+  <span><li>item 1</li></span>
+  <span><li>item 2</li></span>
+</ul>
+All of the list items would be styled, since they are all technically a :first-child of their parent element. 
+
+last-child
+Similar to the :first-child pseudo-class, the :last-child pseudo-class targets the last child of a parent element.
+
+ul li:last-child {
+  color: gray;
+}
+
+
+nth child
+The nth-child selector allows us to specify subsets of child elements we want to style, such as every even element, every third element, and so on. When using nth-child selectors, we must provide information about what pattern of elements we want to select.
+
+The pattern nth-child uses is in the form of an + b
+
+a represents the multiple of elements we want to select. If we want to select every second element, we would set a to 2. If we wanted to select every third element, we would set a to 3.
+n represents a set of zero and increasing positive integers. It is not the element that is selected. The selected element is the result of a x n + b.
+b represents the first element we want to start the subset on. If we want to start styling on the third child, we would set b to 3.
+For example:
+
+a:nth-child(2n + 3) selects every second link, starting with the third link.
+a:nth-child(3n + 4) selects every third link, starting with the fourth link.
+
+a:nth-child(4n + 0)
+If b is of value 0 or is not specified, we will start on element 0. Since this is not a real element, our first styled element will be on the next interval specified by a.
+In the example above, we would style every fourth element, starting on the fourth element.
+
+We can also use the nth-child selector to select all even or odd elements under a parent element.
+
+a:nth-child(even)
+By specifying even or odd, we can style either even or odd child elements, respectively.#
+
+TRANSITIONS
+
+These changes are a type of state change. CSS transitions allow us to control the timing of visual state changes. We can control the following four aspects of an element's transition:
+
+Which CSS properties transition
+How long a transition lasts
+How much time there is before a transition begins
+How a transition accelerates
+
+
+To create a simple transition in CSS, we must specify two of the four aspects:
+
+The property that we want to transition.
+The duration of the transition.
+
+a: hover {
+  background-color: blue;
+}
+
+a {
+  transition-property: color;
+  transition-duration: 1.5s;
+  transition-timing-function: linear;
+  transition-delay: 0.5s;
+}
+
+Full list of propertise that can be animated: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties
+
+Different properties transition in different ways, for example:
+
+Color values, like color and background-color, will blend to a new color.
+Length values like font-size, width, and height will grow or shrink.
+Duration is specified in seconds or milliseconds, such as 3s, 0.75s, 500ms. The default value is 0s, or instantaneous, as if there is no transition.
+
+Our next transition property is transition-delay. Much like duration, its value is an amount of time. Delay specifies the time to wait before starting the transition.
+
+The last transition property is transition-timing-function. The timing function describes the pace of the transition.
+
+The default value is ease, which starts the transition slowly, speeds up in the middle, and slows down again at the end.
+
+Other valid values include:
+
+ease-in — starts slow, accelerates quickly, stops abruptly
+ease-out — begins abruptly, slows down, and ends slowly
+ease-in-out — starts slow, gets fast in the middle, and ends slowly
+linear — constant speed throughout
+
+Transition shorthand
+
+The 4 transition property in one line: transition. This shorthand property describes each aspect of the transition puzzle in a single declaration. The properties must be specified in this order: transition-property, transition-duration, transition-timing-function, transition-delay.
+
+transition: color 1.5s linear 0.5s;
+
+Combinations
+The shorthand transition rule has one advantage over the set of separate transition-<property> rules: you can describe unique transitions for multiple properties, and combine them.
+
+To combine transitions, add a comma (,) before the semicolon (;) in your rule. After the comma, use the same shorthand syntax. For example:
+
+transition: color 1s linear,
+font-size 750ms ease-in 100ms;
 

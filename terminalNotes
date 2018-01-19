@@ -14,6 +14,7 @@ setsid gedit Notes.txt > Opens file and resets terminal
 rm filename > Removes file (no comfirmation asked)
 rm really*name > Deleted anything that starts with really and ends with name
 rmdir: 'dir' > removes directory
+rm -rf /path/to/directory > To remove the folder with all its contents
 mv old_folder_name new_folder_name > Renameing a folder
 mv old_file_name new_file_name > Rename a file
 mv file_name destination_directory > Move file to folder
@@ -23,6 +24,10 @@ The > character redirects a command’s output to a file instead of another comm
 eg: ls > Notes.txt will output the directory list into Notes.txt
 history > prints a list of these commands ->  you can pipe it to grep to search 
 history | grep "ABC" > Lists the recent commands with ABC in them  
+sudo apt remove --purge atom > uninstalling something
+unzip file.zip -d destination_folder > unzpping a folder
+cp -i > copy files with confirmation
+cp -r > Copy directories with the files in it
 
 
 

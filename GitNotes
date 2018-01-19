@@ -1,12 +1,12 @@
 Main Git commands
 -------------------
-git init 
+git init
 #creates a new Git repository
 
-git status 
+git status
 #inspects the contents of the working directory and staging area
 
-git add filename 
+git add filename
 #adds files from the working directory to the staging area
 
 git diff
@@ -15,15 +15,15 @@ git diff
 git commit
 #permanently stores file changes from the staging area in the repository
 
-git log 
+git log
 #shows a list of all previous commits
 
 git show HEAD
 #shows the most recent commit (the commit you are currenty on is the HEAD commit)
-#displays everything the git log command displays for the HEAD commit, plus all the file changes that were committed. 
+#displays everything the git log command displays for the HEAD commit, plus all the file changes that were committed.
 
 #git checkout HEAD {filename}
-will restore the file in your working directory to look exactly as it did when you last made a commit. 
+will restore the file in your working directory to look exactly as it did when you last made a commit.
 
 How to create a GitHub repository
 -------------------------------------
@@ -37,7 +37,7 @@ How to create a GitHub repository
 `git status`
 
 4. Add files to stageing
-`git add chocolate.jpeg`	
+`git add chocolate.jpeg`
 
 5. Commit
 `git commit -m “Add chocolate.jpeg.”`
@@ -45,10 +45,10 @@ How to create a GitHub repository
 6. Add remote origin
 `git remote add origin https://github.com/123WebDesign/icecream.git`
 
-7. Double check 
+7. Double check
 `git remote -v`
 
-8. Oush to GitHub
+8. Push to GitHub
 git push -u origin master
 
 
@@ -60,4 +60,3 @@ git commit -m <message> permanently stores file changes from the staging area in
 git remote add origin <url> specifies the remote repository using Git
 git push -u origin master pushes the changes to the master branch on the remote repository, linking the local repository to the remote repository.
 git push origin master pushes the changes to the master branch on the remote repository, given that the local repository and the remote repository are already linked.
-
